@@ -16,7 +16,14 @@ public:
     ~MainWindow();
 
 private slots:
+    void setInfo();
+
+private slots:
     void on_selectPushButton_clicked();
+
+    void on_listWidget_doubleClicked(const QModelIndex &index);
+
+    void on_listWidget_itemSelectionChanged();
 
 private:
     Ui::MainWindow *ui;

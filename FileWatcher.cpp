@@ -2,18 +2,19 @@
 
 #include <QFileInfo>
 #include <QDateTime>
+#include <QDebug>
 
-FileInfoWatcher::FileInfoWatcher(const QString &watchedFilePath, QObject *parent)
+FileWatcher::FileWatcher(const QString &watchedFilePath, QObject *parent)
     : QObject(parent)
     , watchedFile_(watchedFilePath)
 { }
 
-void FileInfoWatcher::setFile(const QString &path)
+void FileWatcher::setFile(const QString &path)
 {
     watchedFile_ = path;
 }
 
-QString FileInfoWatcher::getInfo() const
+QString FileWatcher::getInfo() const
 {
     if (watchedFile_.isEmpty())
         return "No data";
@@ -28,7 +29,7 @@ QString FileInfoWatcher::getInfo() const
             .arg(last_modified_.toString(Qt::ISODate));
 }
 
-void FileInfoWatcher::onFileInfoUpdated(const QFileInfo &newInfo)
+void FileWatcher::onFileInfoUpdated(const QFileInfo &newInfo)
 {
     if (newInfo.filePath() == watchedFile_) {
         size_ = newInfo.size();
