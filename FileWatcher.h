@@ -16,11 +16,10 @@ public:
     QString getInfo() const;
 
 signals:
-    void fileChanged();
+    void infoUpdated();
 
 public slots:
-
-    void fileInfoUpdated(const QFileInfo& newInfo);
+    void onFileInfoUpdated(const QFileInfo& newInfo);
 
 private:
     QString watchedFile_;

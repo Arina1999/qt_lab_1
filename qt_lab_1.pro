@@ -11,3 +11,5 @@ SOURCES += \
 HEADERS += \
     FileManager.h \
     FileWatcher.h
+
+DEFINES += DIR=\\\"$$PWD\\\"

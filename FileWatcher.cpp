@@ -13,7 +13,7 @@ void FileInfoWatcher::setFile(const QString &path)
     watchedFile_ = path;
 }
 
-QString FileInfoWatcher::getInfoToString() const
+QString FileInfoWatcher::getInfo() const
 {
     if (watchedFile_.isEmpty())
         return "No data";
@@ -28,11 +28,11 @@ QString FileInfoWatcher::getInfoToString() const
             .arg(last_modified_.toString(Qt::ISODate));
 }
 
-void FileInfoWatcher::fileInfoUpdated(const QFileInfo &newInfo)
+void FileInfoWatcher::onFileInfoUpdated(const QFileInfo &newInfo)
 {
     if (newInfo.filePath() == watchedFile_) {
         size_ = newInfo.size();
         last_modified_ = newInfo.lastModified();
-        emit fileChanged();
+        emit infoUpdated();
     }
 }
