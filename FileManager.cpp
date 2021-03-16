@@ -22,9 +22,8 @@ bool FileManager::addPath(const QString &path)
     }
 
     QFileInfo info(path);
-    if (info.isDir()) {
+    if (info.isDir())
         return false;
-    }
 
     filesData_.insert(path, info);
     emit fileInfoUpdated(info);
