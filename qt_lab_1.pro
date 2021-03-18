@@ -1,4 +1,4 @@
-QT -= gui
+QT += core gui widgets
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
@@ -6,10 +6,15 @@ CONFIG -= app_bundle
 SOURCES += \
         FileManager.cpp \
         FileWatcher.cpp \
-        main.cpp
+        main.cpp \
+        mainwindow.cpp
 
 HEADERS += \
     FileManager.h \
-    FileWatcher.h
+    FileWatcher.h \
+    mainwindow.h
 
 DEFINES += DIR=\\\"$$PWD\\\"
+
+FORMS += \
+    mainwindow.ui

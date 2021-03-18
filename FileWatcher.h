@@ -5,11 +5,11 @@
 #include <QFileInfo>
 #include <QDateTime>
 
-class FileInfoWatcher : public QObject
+class FileWatcher : public QObject
 {
     Q_OBJECT
 public:
-    FileInfoWatcher(const QString &watchedFilePath, QObject *parent = nullptr);
+    FileWatcher(const QString &watchedFilePath, QObject *parent = nullptr);
 
     void setFile(const QString &path);
 
@@ -27,5 +27,6 @@ private:
     QDateTime last_modified_;
 };
 
+Q_DECLARE_METATYPE(FileWatcher*)
 
 #endif // FILEWATCHER_H
